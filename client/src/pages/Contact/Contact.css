@@ -1,0 +1,13 @@
+button.submit-button.btn.btn-danger {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 50px;
+  background-color: #b30000;
+  color: white;
+  border-color: #b30000;
+}
+
+button.submit-button.btn.btn-danger:hover {
+  background-color: #000000;
+  color: white;
+  border-color: #000000;
+}

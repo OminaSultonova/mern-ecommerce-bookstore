@@ -1,0 +1,86 @@
+/* src/admin-components/AdminSidebar.css */
+.sidebar {
+    width: 200px; /* Adjust sidebar width as needed */
+    border-right: 1px solid #dee2e6; /* Optional: Add a border on the right */
+    background-color: #fff; /* Sidebar background color */
+  }
+  
+  .sidebar-link {
+    color: #6c757d; /* Text color */
+    display: flex;
+    align-items: center;
+    gap: 8px;s
+    text-decoration: none;
+    padding: 10px 20px;
+    margin-right: 0px;
+  }
+  
+  .sidebar-item.active {
+    background-color: #e9ecef; /* Active item background color */
+  }
+
+  div.sidebar.list-group {
+    border-radius: 0;
+    border-style: none;
+  }
+
+  a.sidebar-link {
+    text-decoration: none;
+
+  }
+  a.sidebar-link.active {
+    background-color:#b30000 ;
+    border-radius: 50px;
+    color: white;
+  }
+ button.admin-btn.btn.btn-dark.btn-sm {
+  border-radius: 50px;
+ }
+
+  a.btn.btn-danger.btn-sm {
+    border-radius: 50px;
+  }
+
+  button.btn.btn-success {
+    border-radius: 50px;
+
+  }
+/* Login page */
+  div.mx-auto.col-lg-4.col-md-6 {
+    
+  }
+
+  div.shadow-sm.card {
+    border-radius: 20px;
+    border-color: #dee2e6;
+
+
+  }
+
+div.card-body {
+}
+button.w-100.btn.btn-primary {
+  border-radius: 50px;
+  background-color:#b30000 ;
+  border-color: #b30000;
+}
+button.w-100.btn.btn-primary:hover {
+  background-color: #000000; 
+  border-color: #000000; 
+}
+input#email.form-control {
+  border-radius: 50px;
+}
+input#password.form-control {
+  border-radius: 50px;
+}
+
+/* BookForm page */
+button.mt-3.book.btn.btn-success {
+  border-radius: 50px;
+}
+
+/* OrderDetails page */
+button.mt-4.btn-secondary{
+  border-radius: 50px;
+}

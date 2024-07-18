@@ -1,0 +1,121 @@
+.quantity-control {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-input {
+  width: 20px;
+  text-align: center;
+  margin: 0 2px;
+  min-width: 35px;
+}
+
+button.quantity-btn.btn.btn-btn.btn-sm {
+  padding: 2px 6px;
+  color: gray;
+}
+
+input.quantity-input.form-control {
+  padding: 4px 6px;
+  text-align: center;
+  margin: 3px;
+}
+
+div.total-price.col-md-3 {
+  margin-left: 10px;
+  padding: 0px;
+  width: 100px;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+div.card {
+  border-radius: 0;
+}
+
+/* Media queries for screen sizes from 991px to 768px */
+@media (min-width: 768px) and (max-width: 991px) {
+  .quantity-control {
+    flex-direction: row; /* Ensure items are in a row */
+  }
+
+  .quantity-btn {
+    padding: 1px 5px; /* Adjust padding for medium screens */
+  }
+
+  .quantity-input {
+    padding: 3px 5px; /* Adjust padding for medium screens */
+    margin: 0 5px; /* Adjust margin for medium screens */
+    min-width: 35px; /* Ensure the input has a minimum width */
+  }
+
+  button.quantity-btn.btn.btn-btn.btn-sm {
+    padding: 1px 5px;
+  }
+
+  input.quantity-input.form-control {
+    padding: 3px 3px; /* Adjust padding for medium screens */
+    margin: 0px; /* Ensure consistent margin */
+    min-width: 30px; /* Ensure the input has a minimum width */
+  }
+
+  div.total-price.col-md-3 {
+    margin-left: 5px; /* Adjust left margin for medium screens */
+    padding: 0px; /* Remove padding for medium screens */
+    width: 80px; /* Adjust width for medium screens */
+  }
+}
+
+/* Media queries for screen sizes below 768px */
+@media (max-width: 768px) {
+  .quantity-control {
+    flex-direction: row; /* Ensure items are in a row */
+  }
+
+  .quantity-btn {
+    padding: 1px 4px; /* Adjust padding for smaller screens */
+  }
+
+  .quantity-input {
+    padding: 2px 4px; /* Adjust padding for smaller screens */
+    margin: 0 2px; /* Adjust margin for smaller screens */
+    min-width: 30px; /* Ensure the input has a minimum width */
+  }
+
+  button.quantity-btn.btn.btn-btn.btn-sm {
+    padding: 1px 4px; /* Adjust padding for smaller screens */
+  }
+
+  input.quantity-input.form-control {
+    padding: 2px 4px; /* Adjust padding for smaller screens */
+    margin: 2px; /* Adjust margin for smaller screens */
+    min-width: 30px; /* Ensure the input has a minimum width */
+  }
+
+  div.total-price.col-md-3 {
+    margin-left: 0; /* Remove left margin for smaller screens */
+    padding: 0; /* Remove padding for smaller screens */
+    width: auto; /* Let the width be auto for better responsiveness */
+  }
+}
+
+button.w-100.mt-3.btn.btn-danger {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 50px;
+  background-color: #b30000;
+  color: white;
+  border-color: #b30000;
+}
+button.w-100.mt-3.btn.btn-danger:hover {
+  background-color: #000000;
+  color: white;
+  border-color: #000000; /* Optionally change border color */
+}

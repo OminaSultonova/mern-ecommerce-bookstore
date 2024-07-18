@@ -1,0 +1,24 @@
+button.payment.btn.btn-danger.btn-md {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 50px;
+  background-color: #b30000;
+}
+
+button.payment.btn.btn-danger.btn-md:hover {
+  background-color: white;
+  color: #000000;
+  border-color: #000000;
+}
+
+input#formAddress.form-control {
+  border-radius: 50px;
+}
+input#formCity.form-control {
+  border-radius: 50px;
+}
+input#formPostalCode.form-control {
+  border-radius: 50px;
+}
+input#formCountry.form-control {
+  border-radius: 50px;
+}

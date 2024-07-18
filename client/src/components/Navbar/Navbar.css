@@ -1,0 +1,25 @@
+/* Ensure social media icons display side by side in collapsed navbar */
+.navbar-collapse .nav-icons {
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar-collapse .nav-icons .nav-link {
+  padding: 0.5rem; /* Adjust padding as needed */
+}
+
+span.cart-badge {
+  background-color: #b30000;
+  color: white;
+  border-radius: 50%;
+  padding: 0.5px 3px;
+  margin-left: 1px; /* Adjust margin as needed */
+  font-size: 13px;
+}
+
+/* h3 {
+  font-family: "Inria Serif", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 25px;
+} */
