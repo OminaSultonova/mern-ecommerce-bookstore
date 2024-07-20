@@ -32,13 +32,15 @@ const CheckoutForm = ({ user }) => {
     const books = cart.cartItems.map(item => ({
       bookId: item.id,
       title: item.title,
-      price: item.price * 100,  // Convert price to the smallest currency unit (e.g., cents)
+      price: Math.round(item.price * 100),   // Convert price to the smallest currency unit (e.g., cents)
       quantity: item.quantity,
     }));
 
     console.log('Books:', books);  // Debugging line to check the formatted books
 
-    const totalAmount = cart.totalPrice * 100;  // Convert total price to the smallest currency unit (e.g., cents)
+    const totalAmount = Math.round(cart.totalPrice * 100);  // Convert total price to the smallest currency unit (e.g., cents)
+    console.log('Total amount in cents:', totalAmount); // Log the total amount
+
 
     dispatch(createCheckoutSession(user.uid, books, shippingAddress, totalAmount));
   };

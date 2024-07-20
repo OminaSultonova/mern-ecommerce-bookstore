@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import './Contact.css';
 
 const ContactPage = () => {
@@ -9,17 +9,40 @@ const ContactPage = () => {
     message: '',
   });
 
-
+  const [responseMessage, setResponseMessage] = useState(null);
+  const [error, setError] = useState(null);
   
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic
-    console.log('Form submitted', formData);
+    try {
+      const response = await fetch('http://localhost:4000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        setResponseMessage(data.message);
+        setError(null);
+        // Clear the form
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setError(data.message);
+        setResponseMessage(null);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setError('Something went wrong. Please try again.');
+      setResponseMessage(null);
+    }
   };
 
   return (
@@ -77,6 +100,8 @@ const ContactPage = () => {
               Submit
             </Button>
           </Form>
+          {responseMessage && <Alert variant="success" className="mt-3">{responseMessage}</Alert>}
+          {error && <Alert variant="danger" className="mt-3">{error}</Alert>}
         </Col>
       </Row>
     </Container>

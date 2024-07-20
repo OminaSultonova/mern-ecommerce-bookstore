@@ -1,10 +1,49 @@
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+
 
 // Replace with your logo file path
 
 const Footer = () => {
+
+  const [email, setEmail] = useState('');
+  const [responseMessage, setResponseMessage] = useState(null);
+  const [error, setError] = useState(null);
+
+  const handleChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('http://localhost:4000/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        setResponseMessage(data.message);
+        setError(null);
+        setEmail(''); // Clear the input box
+      } else {
+        setError(data.message);
+        setResponseMessage(null);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setError('Something went wrong. Please try again.');
+      setResponseMessage(null);
+    }
+  };
+
+
   return (
     <footer className="bg-dark text-light py-4 mt-auto">
       <Container className="d-flex flex-column h-100">
@@ -56,10 +95,19 @@ const Footer = () => {
           {/* Subscribe Form */}
           <Col md={3} className="text-center text-md-end">
             <h6 className="text-uppercase mb-3">Subscribe</h6>
-            <Form className="d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-end">
-              <Form.Control type="email" placeholder="Enter email" className="me-md-1 mb-2 mb-md-0" />
+            <Form className="d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-end" onSubmit={handleSubmit}>
+              <Form.Control 
+              type="email" 
+              placeholder="Enter email" 
+              className="me-md-1 mb-2 mb-md-0" 
+              value={email}
+              onChange={handleChange}
+              required
+              />
               <Button variant="light" type="submit">Submit</Button>
             </Form>
+            {responseMessage && <Alert variant="success" className="mt-3">{responseMessage}</Alert>}
+            {error && <Alert variant="danger" className="mt-3">{error}</Alert>}
           </Col>
         </Row>
       </Container>
